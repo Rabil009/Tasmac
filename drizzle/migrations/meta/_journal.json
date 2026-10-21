@@ -1,0 +1,62 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1792264451651,
+      "tag": "0000_m4_auth_rbac",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792265337486,
+      "tag": "0001_m5_master_data",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792305279232,
+      "tag": "0002_m6_catalog_inventory",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1792305568037,
+      "tag": "0003_m7_stock_operations",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1792305849839,
+      "tag": "0004_m8_transfers_tracking",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1792306171277,
+      "tag": "0005_m9_reporting_columns",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1792306497979,
+      "tag": "0006_m10_fk_indexes",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1792306733036,
+      "tag": "0007_m10_revoke_audit_writes",
+      "breakpoints": true
+    }
+  ]
+}

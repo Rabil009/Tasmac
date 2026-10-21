@@ -1,0 +1,2675 @@
+@import "tailwindcss" source(none);
+@import "@4rged-ai/platform/styles.css";
+@source "../src";
+@source "../node_modules/@4rged-ai/platform/dist";
+
+/*
+ * TASMAC desktop contract layered over the 4RGE token system.
+ * 4RGE owns components, structure and the semantic token names; this file
+ * only assigns the approved TASMAC dark values and fixed dimensions.
+ * Selectors use `html` so they win over 4RGE's :root/.dark/.light blocks.
+ */
+html.dark {
+  color-scheme: dark;
+  --font-app:
+    "Segoe UI Variable", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --fp-font-sans:
+    "Segoe UI Variable", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --radius: 0.625rem;
+  --background: #0a0a0a;
+  --foreground: #f1f0ec;
+  --card: #171717;
+  --card-foreground: #f1f0ec;
+  --popover: #171717;
+  --popover-foreground: #f1f0ec;
+  --primary: #f97316;
+  --primary-foreground: #17110b;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #f1f0ec;
+  --muted: #1a1a1a;
+  --muted-foreground: #a3a3a3;
+  --accent: #202020;
+  --accent-foreground: #f1f0ec;
+  --destructive: #fb6666;
+  --destructive-foreground: #f1f0ec;
+  --border: #292929;
+  --input: #303030;
+  --ring: #f97316;
+  --chart-1: #f97316;
+  --chart-2: #5caea5;
+  --chart-3: #d5a546;
+  --chart-4: #879fca;
+  --chart-5: #7d817e;
+  --sidebar: #101010;
+  --sidebar-foreground: #f1f0ec;
+  --sidebar-primary: #f97316;
+  --sidebar-primary-foreground: #17110b;
+  --sidebar-accent: #1d1d1d;
+  --sidebar-accent-foreground: #f1f0ec;
+  --sidebar-border: #292929;
+  --sidebar-ring: #f97316;
+  --success: #5caea5;
+  --text-tertiary: #777a75;
+  --primary-hover: #ea580c;
+
+  /* 4RGE surface/state tokens */
+  --fp-surface-canvas: #0a0a0a;
+  --fp-surface-default: #171717;
+  --fp-surface-subtle: #1a1a1a;
+  --fp-surface-raised: #202020;
+  --fp-surface-overlay: #171717;
+  --fp-text-primary: #f1f0ec;
+  --fp-text-secondary: #a3a3a3;
+  --fp-text-tertiary: #777a75;
+  --fp-text-inverse: #17110b;
+  --fp-border-subtle: rgba(241, 240, 236, 0.07);
+  --fp-border-default: #292929;
+  --fp-border-strong: #454545;
+  --fp-state-hover: rgba(255, 255, 255, 0.04);
+  --fp-state-pressed: rgba(255, 255, 255, 0.07);
+  --fp-state-selected: #1d1d1d;
+  --fp-accent: #f97316;
+  --fp-accent-hover: #ea580c;
+  --fp-accent-soft: rgba(249, 115, 22, 0.14);
+  --fp-state-success: #5caea5;
+  --fp-state-success-subtle: rgba(92, 174, 165, 0.12);
+  --fp-state-warning: #d5a546;
+  --fp-state-warning-subtle: rgba(213, 165, 70, 0.12);
+  --fp-state-danger-subtle: rgba(217, 107, 101, 0.12);
+  --fp-sidebar-background: 0 0% 6%;
+  --fp-header-background: 0 0% 6%;
+  --fp-content-background: 0 0% 4%;
+  --fp-sidebar-fade: 16, 16, 16;
+
+  /* Fixed shell dimensions */
+  --fp-sidebar-width: 224px;
+  --fp-sidebar-collapsed-width: 64px;
+  --fp-header-height: 56px;
+  --fp-control-md: 2.5rem;
+  --fp-type-display-size: 1.5rem;
+  --fp-radius-lg: 0.625rem;
+  --fp-radius-md: 0.5rem;
+  --fp-radius-sm: 0.375rem;
+}
+
+/* The light option keeps the same restrained TASMAC palette and hierarchy. */
+html.light {
+  color-scheme: light;
+  --font-app:
+    "Segoe UI Variable", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --fp-font-sans:
+    "Segoe UI Variable", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --radius: 0.625rem;
+  --background: #fdfcf9;
+  --foreground: #1d1d1b;
+  --card: #ffffff;
+  --card-foreground: #1d1d1b;
+  --popover: #ffffff;
+  --popover-foreground: #1d1d1b;
+  --primary: #f97316;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f4f1;
+  --secondary-foreground: #1d1d1b;
+  --muted: #f8f7f4;
+  --muted-foreground: #575650;
+  --accent: #f3f2ef;
+  --accent-foreground: #1d1d1b;
+  /* Stronger neutral edges keep cards, tables and nested panels distinct on white. */
+  --border: #b8b5ad;
+  --input: #b8b5ad;
+  --ring: #f97316;
+  --sidebar: #fdfcf9;
+  --sidebar-foreground: #1d1d1b;
+  --sidebar-primary: #f97316;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1efeb;
+  --sidebar-accent-foreground: #1d1d1b;
+  --sidebar-border: #b8b5ad;
+  --sidebar-ring: #f97316;
+  --text-tertiary: #65635d;
+  --primary-hover: #ea580c;
+  --success: #007f73;
+  --destructive: #d94343;
+  --destructive-foreground: #ffffff;
+  --chart-1: #f97316;
+  --chart-2: #3b8f87;
+  --chart-3: #b7822c;
+  --chart-4: #6e8dbf;
+  --chart-5: #777570;
+
+  --fp-surface-canvas: #fdfcf9;
+  --fp-surface-default: #ffffff;
+  --fp-surface-subtle: #f8f7f4;
+  --fp-surface-raised: #f3f2ef;
+  --fp-surface-overlay: #ffffff;
+  --fp-text-primary: #1d1d1b;
+  --fp-text-secondary: #5f5d58;
+  --fp-text-tertiary: #6c6963;
+  --fp-text-inverse: #ffffff;
+  --fp-border-subtle: rgba(29, 29, 27, 0.16);
+  --fp-border-default: #b8b5ad;
+  --fp-border-strong: #96938b;
+  --fp-state-hover: rgba(29, 29, 27, 0.04);
+  --fp-state-pressed: rgba(29, 29, 27, 0.08);
+  --fp-state-selected: #f4f2ee;
+  --fp-accent: #f97316;
+  --fp-accent-hover: #ea580c;
+  --fp-accent-soft: rgba(249, 115, 22, 0.12);
+  --fp-sidebar-background: 45 33% 99%;
+  --fp-header-background: 45 33% 99%;
+  --fp-content-background: 40 33% 99%;
+  --fp-sidebar-fade: 253, 252, 249;
+  --fp-sidebar-width: 224px;
+  --fp-sidebar-collapsed-width: 64px;
+  --fp-header-height: 56px;
+  --fp-control-md: 2.5rem;
+  --fp-type-display-size: 1.5rem;
+  --fp-radius-lg: 0.625rem;
+  --fp-radius-md: 0.5rem;
+  --fp-radius-sm: 0.375rem;
+}
+
+/* Remove dark-only fills from controls, reports and tables in light mode. */
+html.light .tasmac-select-content [data-slot="select-item"][data-state="checked"],
+html.light .tasmac-data-row[data-active="true"],
+html.light .tasmac-pair[data-active="true"],
+html.light .tasmac-report-bar-row:hover,
+html.light table.tasmac-radar-readout tr[data-active="true"] td,
+html.light table.tasmac-radar-readout tbody tr:hover td {
+  background: var(--fp-state-selected);
+}
+
+html.light .tasmac-select-content [data-slot="select-item"][data-highlighted],
+html.light .tasmac-btn.tasmac-btn-toolbar:hover,
+html.light .tasmac-btn.tasmac-btn-panel:hover,
+html.light .tasmac-btn.tasmac-btn-row:hover,
+html.light .tasmac-btn.tasmac-btn-row:focus-visible {
+  background: var(--fp-state-hover);
+}
+
+html.light .tasmac-segmented {
+  background: var(--fp-surface-subtle);
+}
+
+html.light .tasmac-segment[aria-pressed="true"] {
+  background: transparent;
+  box-shadow: none;
+}
+
+html.light .tasmac-segment-indicator {
+  background: var(--primary);
+  box-shadow: 0 1px 2px rgba(249, 115, 22, 0.28);
+}
+
+html.light .tasmac-radar-grid,
+html.light .tasmac-radar-spoke {
+  stroke: var(--border);
+}
+
+html.light .tasmac-radar-axis {
+  fill: var(--muted-foreground);
+}
+
+html.light .tasmac-radar-axis[data-active="true"] {
+  fill: var(--foreground);
+}
+
+html.light .tasmac-radar-scale {
+  fill: var(--text-tertiary);
+}
+
+html.light .tasmac-radar-dot {
+  stroke: var(--card);
+}
+
+html.light table.tasmac-radar-readout td {
+  border-bottom-color: var(--border);
+}
+
+html.light .tasmac-report-track {
+  background: var(--secondary);
+}
+
+html.light .group\/sidebar {
+  --fp-state-selected: #f4f2ee;
+}
+
+/* Header: compact global tools with no repeated page title. */
+.tasmac-topbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: var(--fp-sidebar-active-width, var(--fp-sidebar-width));
+  z-index: 30;
+  height: var(--fp-header-height);
+  border-bottom: 1px solid var(--fp-border-subtle);
+  background: hsl(var(--fp-header-background) / 0.95);
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 1023px) {
+  .tasmac-topbar {
+    left: 0;
+  }
+}
+
+.tasmac-topbar-inner {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.25rem;
+}
+
+.tasmac-topbar-brand {
+  display: flex;
+  height: 2.25rem;
+  min-width: 0;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: -0.375rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background: transparent;
+  padding: 0 0.375rem;
+  color: var(--foreground);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: 0.005em;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+.tasmac-topbar-brand-logo {
+  position: relative;
+  display: grid;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex: 0 0 1.75rem;
+  place-items: center;
+}
+.tasmac-topbar-brand-logo .tasmac-brand-mark {
+  width: 100%;
+  height: 100%;
+  transition: opacity 120ms ease;
+}
+.tasmac-topbar-brand-toggle-icon {
+  position: absolute;
+  inset: 0;
+  width: 1rem;
+  height: 1rem;
+  margin: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: transform 160ms ease, opacity 120ms ease;
+}
+.tasmac-topbar-brand:hover .tasmac-topbar-brand-logo .tasmac-brand-mark,
+.tasmac-topbar-brand:focus-visible .tasmac-topbar-brand-logo .tasmac-brand-mark,
+.tasmac-topbar-brand:active .tasmac-topbar-brand-logo .tasmac-brand-mark {
+  opacity: 0;
+}
+.tasmac-topbar-brand:hover .tasmac-topbar-brand-toggle-icon,
+.tasmac-topbar-brand:focus-visible .tasmac-topbar-brand-toggle-icon,
+.tasmac-topbar-brand:active .tasmac-topbar-brand-toggle-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tasmac-live-datetime {
+  display: flex;
+  height: 2rem;
+  min-width: max-content;
+  flex: 0 0 auto;
+  gap: 0.5rem;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--muted) 76%, transparent);
+  box-shadow: inset 0 1px 0 hsl(var(--background) / 0.5);
+  padding: 0 0.625rem;
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tasmac-live-datetime svg {
+  color: var(--primary);
+  stroke-width: 2;
+}
+
+.tasmac-live-date {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 650;
+  line-height: 1rem;
+}
+
+.tasmac-live-time {
+  border-left: 1px solid var(--border);
+  color: var(--foreground);
+  font-size: 0.8125rem;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+  line-height: 1rem;
+  padding-left: 0.5rem;
+}
+
+.tasmac-mobile-sidebar-toggle {
+  display: none;
+}
+
+.tasmac-brand-toggle {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 2.5rem;
+  place-items: center;
+  padding: 0;
+  border-radius: 0.375rem;
+  outline: none;
+  color: var(--foreground);
+  transition: color 180ms ease;
+}
+
+.tasmac-brand-toggle,
+.tasmac-brand-toggle:hover,
+.tasmac-brand-toggle:active,
+.tasmac-brand-toggle:focus,
+.tasmac-brand-toggle:focus-visible {
+  border-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.tasmac-brand-mark {
+  display: grid;
+  width: 1.875rem;
+  height: 1.875rem;
+  flex: 0 0 auto;
+  place-items: center;
+}
+
+.tasmac-brand-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tasmac-brand-toggle-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* Keep the sidebar brand line in the same compact rhythm as its 36px nav rows. */
+.group\/sidebar .group\/header-logo {
+  height: 48px !important;
+}
+#fp-desktop-sidebar .fp-sidebar-logo-content {
+  transform: none !important;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="true"] .tasmac-brand-toggle {
+  /* Its centre matches the expanded and collapsed navigation icon column. */
+  margin-left: -4px;
+}
+.group\/sidebar [aria-label="Main navigation"] {
+  padding-top: 0 !important;
+}
+
+.tasmac-global-search {
+  display: flex;
+  width: min(100%, 34rem);
+  flex: 0 1 34rem;
+  height: 2.25rem;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--card);
+  padding: 0 0.625rem;
+  color: var(--muted-foreground);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.tasmac-global-search:focus-within {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px var(--fp-accent-soft);
+}
+
+.tasmac-global-search [data-slot="input"] {
+  min-width: 0;
+  height: 100%;
+  flex: 1;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.tasmac-global-search [data-slot="input"]:focus-visible {
+  outline: none;
+}
+
+.tasmac-topbar-tools {
+  display: flex;
+  height: 2.25rem;
+  align-items: center;
+  gap: 0.375rem;
+  margin-left: auto;
+  padding-left: 0;
+}
+
+.tasmac-topbar-tools .icon-button-quiet {
+  width: 2rem;
+  height: 2rem;
+}
+
+.tasmac-topbar-divider {
+  width: 1px;
+  height: 1rem;
+  background: var(--fp-border-subtle);
+}
+
+/* Profile menu: make account details scannable before the two actions. */
+.tasmac-profile-menu {
+  overflow: hidden !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.75rem !important;
+  background: var(--popover) !important;
+  box-shadow: 0 14px 34px rgb(0 0 0 / 0.16) !important;
+}
+.tasmac-profile-summary {
+  padding: 0.875rem 1rem 0.75rem;
+}
+.tasmac-profile-role {
+  display: inline-flex;
+  max-width: 100%;
+  margin-top: 0.625rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--muted);
+  padding: 0.1875rem 0.5rem;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tasmac-profile-menu [role="separator"] {
+  margin: 0.25rem 0.5rem;
+  background: var(--border);
+}
+.tasmac-profile-action {
+  display: flex;
+  min-height: 2.5rem;
+  margin: 0.125rem 0.375rem;
+  border-radius: 0.5rem;
+  padding: 0 0.625rem;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+.tasmac-profile-action svg {
+  margin-right: 0.125rem;
+  color: var(--muted-foreground);
+}
+.tasmac-profile-action:hover,
+.tasmac-profile-action:focus-visible {
+  background: var(--muted);
+}
+.tasmac-profile-signout {
+  color: var(--destructive);
+}
+.tasmac-profile-signout svg {
+  color: currentColor;
+}
+.tasmac-profile-signout:hover,
+.tasmac-profile-signout:focus-visible {
+  background: color-mix(in srgb, var(--destructive) 10%, transparent);
+}
+
+@media (max-width: 720px) {
+  .tasmac-mobile-sidebar-toggle {
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 0.375rem;
+    color: var(--foreground);
+  }
+
+  .tasmac-mobile-sidebar-toggle:hover {
+    background: var(--fp-state-hover);
+  }
+
+  .tasmac-topbar-inner {
+    gap: 0.5rem;
+    padding: 0 0.75rem;
+  }
+
+  .tasmac-topbar-brand {
+    font-size: 0.875rem;
+  }
+
+  .tasmac-live-datetime {
+    display: flex;
+    gap: 0;
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .tasmac-live-date,
+  .tasmac-live-datetime svg {
+    display: none;
+  }
+
+  .tasmac-live-time-divider {
+    display: none;
+  }
+
+  .tasmac-live-time {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .tasmac-global-search {
+    flex-basis: 12rem;
+  }
+
+  .tasmac-topbar-divider {
+    display: none;
+  }
+
+  .tasmac-topbar-tools {
+    gap: 0.125rem;
+    padding-left: 0.375rem;
+  }
+}
+
+@theme inline {
+  --color-success: var(--success);
+  --color-tertiary: var(--text-tertiary);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-primary-hover: var(--primary-hover);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--fp-font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
+}
+button,
+input,
+select,
+textarea {
+  font-weight: inherit;
+}
+
+/* One measured motion language for shell, theme, and form controls. */
+html,
+body {
+  transition: background-color 220ms ease, color 180ms ease;
+}
+.tasmac-topbar {
+  transition:
+    left 260ms cubic-bezier(0.2, 0, 0, 1),
+    background-color 220ms ease,
+    border-color 220ms ease;
+}
+[data-slot="card"],
+[data-slot="dialog-content"],
+.tasmac-table-surface,
+.tasmac-summary-strip,
+.tasmac-auth-panel {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 160ms ease;
+}
+[data-slot="input"],
+[data-slot="select-trigger"],
+select.tasmac-select,
+textarea,
+.tasmac-btn,
+[role="switch"],
+[role="switch"] > span,
+input[type="range"],
+input[type="range"]::-webkit-slider-thumb {
+  transition:
+    color 160ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms cubic-bezier(0.2, 0, 0, 1);
+}
+.tasmac-theme-switcher {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms cubic-bezier(0.2, 0, 0, 1) !important;
+}
+.tasmac-theme-switcher:hover {
+  transform: translateY(-1px);
+}
+.tasmac-theme-switcher:active {
+  transform: translateY(0) scale(0.94);
+}
+.tasmac-theme-switcher svg {
+  animation: tasmac-theme-icon-in 260ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+@keyframes tasmac-theme-icon-in {
+  from {
+    opacity: 0;
+    transform: rotate(-50deg) scale(0.62);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Typography contract */
+@utility tasmac-page-title {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+@utility tasmac-section-title {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 675;
+}
+@utility tasmac-metric-label {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+@utility tasmac-metric-value {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Controls: 36px desktop fields; labels stay above without dominating data tables. */
+[data-slot="input"],
+[data-slot="select-trigger"],
+select.tasmac-select {
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  font-size: 13px;
+}
+label[data-slot="label"],
+[data-slot="label"] {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+/* Table rhythm: 42px header, 48px rows, 13px text. */
+main table,
+#content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  line-height: 18px;
+  font-variant-numeric: tabular-nums;
+}
+main table thead th,
+#content table thead th {
+  height: 40px;
+  padding: 0 12px;
+  font-size: 12.5px;
+  font-weight: 750;
+  letter-spacing: 0.015em;
+  color: var(--muted-foreground);
+  background: var(--fp-surface-subtle);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+main table tbody td,
+#content table tbody td {
+  height: 44px;
+  padding: 4px 12px;
+  border-top: 1px solid var(--border);
+  vertical-align: middle;
+}
+main table tbody tr:first-child td,
+#content table tbody tr:first-child td {
+  border-top: 0;
+}
+main table tbody tr:hover,
+#content table tbody tr:hover {
+  background: var(--fp-state-hover);
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Codes (SKU, shop number, waybill) never wrap mid-token. */
+#content .font-mono,
+#content .tasmac-txn-link {
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+#content table td .font-mono,
+#content table td.font-mono {
+  white-space: nowrap;
+}
+
+/* Dashboard tables: readable uppercase headers; compact ranked table rows. */
+main table.tasmac-dash-table thead th {
+  height: 40px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+main table.tasmac-dash-table th.text-center,
+main table.tasmac-dash-table td.text-center {
+  text-align: center !important;
+}
+main table.tasmac-dash-compact tbody td {
+  height: 40px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.tasmac-shop-share-track {
+  background: var(--primary);
+  transition: background-color 180ms ease;
+}
+main table.tasmac-dash-compact tbody tr:hover .tasmac-shop-share-track,
+main table.tasmac-dash-compact tbody tr:focus .tasmac-shop-share-track,
+main table.tasmac-dash-compact tbody tr[data-active="true"] .tasmac-shop-share-track {
+  background: #925b32;
+}
+
+/*
+ * Sidebar navigation. 4RGE's selected token is a translucent orange, which reads as
+ * brown over the near-black rail; inside the sidebar it becomes neutral charcoal and
+ * location is carried by a thin orange edge indicator instead.
+ */
+.group\/sidebar {
+  --fp-state-selected: #1d1d1d;
+  --tasmac-nav-row: 36px;
+  --tasmac-nav-child: 32px;
+  --tasmac-nav-indicator: 2px;
+}
+.group\/sidebar [aria-label="Main navigation"] > li > ul {
+  gap: 2px;
+}
+.group\/sidebar [class*="group/navitem"] > a > div {
+  display: flex;
+  align-items: center;
+  height: var(--tasmac-nav-row);
+}
+.group\/sidebar [class*="group/navitem"] > a > div > div {
+  gap: 10px;
+  width: 100%;
+  padding-inline: 8px;
+}
+.group\/sidebar [class*="group/navitem"] > a > div p {
+  color: inherit;
+  font-size: 13px;
+  line-height: 18px;
+}
+.group\/sidebar [class*="group/navitem"] > a > div > div {
+  color: inherit;
+}
+.group\/sidebar [class*="group/navitem"]:has(button) > button {
+  top: 6px;
+  right: 6px;
+}
+.group\/sidebar [class*="group/navitem"] svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+}
+.group\/sidebar [class*="group/navitem"] > a > div[class*="bg-state-selected"] {
+  color: var(--foreground);
+}
+.group\/sidebar
+  [class*="group/navitem"]
+  > a
+  > div[class*="bg-state-selected"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: var(--tasmac-nav-indicator);
+  border-radius: 0 2px 2px 0;
+  background: var(--primary);
+}
+/* Nested child rows */
+.group\/sidebar [class*="group/navtree"] ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding-left: 38px;
+}
+.group\/sidebar [class*="group/navtree"] ul a {
+  position: relative;
+  height: var(--tasmac-nav-child);
+  padding-inline: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 8px;
+}
+.group\/sidebar [class*="group/navtree"] ul a[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  border-radius: 0 2px 2px 0;
+  background: var(--primary);
+}
+/* Both states share one icon grid, so no icon jumps during sidebar motion. */
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="true"] [aria-label="Main navigation"] {
+  margin-top: 4px;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="true"] [aria-label="Main navigation"] > li > ul {
+  gap: 8px;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="true"] [class*="group/navitem"] > a > div {
+  height: 40px;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="true"] [class*="group/navitem"] svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* Collapsed rail: one 56px grid governs the toggle and every navigation target. */
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] > div > div:first-child {
+  height: 48px;
+  padding-inline: 0;
+  justify-content: center;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] .group\/header-logo,
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] .fp-sidebar-logo-content {
+  display: grid;
+  width: var(--fp-sidebar-collapsed-width);
+  height: 48px !important;
+  flex: 0 0 var(--fp-sidebar-collapsed-width);
+  margin: 0 !important;
+  place-items: center;
+  transform: none !important;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] .tasmac-brand-toggle {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex-basis: 40px;
+  margin-left: 0;
+  place-items: center;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] [aria-label="Main navigation"] {
+  width: var(--fp-sidebar-collapsed-width);
+  margin-top: 4px;
+  padding: 0 !important;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] [aria-label="Main navigation"] > li {
+  width: var(--fp-sidebar-collapsed-width) !important;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] [aria-label="Main navigation"] > li > ul {
+  width: 40px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  gap: 8px;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] [class*="group/navitem"],
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] [class*="group/navitem"] > a,
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] [class*="group/navitem"] > a > div {
+  width: 40px !important;
+  height: 40px;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] [class*="group/navitem"] > a > div > div {
+  width: 40px;
+  min-width: 0;
+  justify-content: center;
+  gap: 0;
+  padding-inline: 0;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] [class*="group/navitem"] > a > div > div > div:not(:first-child) {
+  display: none;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] [class*="group/navitem"] svg {
+  width: 19px;
+  height: 19px;
+}
+#fp-desktop-sidebar.group\/sidebar[aria-expanded="false"] [class*="group/navitem"] > a > div[class*="bg-state-selected"]::before {
+  top: 8px;
+  bottom: 8px;
+}
+
+/* Keep the sidebar control in the collapsed-rail slot while the panel changes width. */
+#fp-desktop-sidebar .group\/header-logo,
+#fp-desktop-sidebar .fp-sidebar-logo-content {
+  display: grid;
+  width: var(--fp-sidebar-collapsed-width);
+  height: 48px !important;
+  flex: 0 0 var(--fp-sidebar-collapsed-width);
+  margin: 0 !important;
+  place-items: center;
+  transform: none !important;
+  transition: none !important;
+}
+#fp-desktop-sidebar .tasmac-brand-toggle {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  margin: 0 !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px;
+  background: var(--card) !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+#fp-desktop-sidebar .tasmac-brand-toggle:hover,
+#fp-desktop-sidebar .tasmac-brand-toggle:focus-visible {
+  border-color: var(--primary) !important;
+  background: var(--fp-state-hover) !important;
+}
+#fp-desktop-sidebar .tasmac-brand-toggle-icon {
+  display: block;
+  transition: none !important;
+}
+
+/* Collapsed-rail label tooltip (rendered by the app shell). */
+.tasmac-nav-tooltip {
+  position: fixed;
+  z-index: 60;
+  pointer-events: none;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--popover);
+  color: var(--popover-foreground);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Sidebar collapse/expand control: 40×40 interaction target. */
+header button[aria-label="Collapse sidebar"],
+header button[aria-label="Expand sidebar"] {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+}
+
+/* ---------------- Inventory section ---------------- */
+.tasmac-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+}
+.tasmac-tab {
+  position: relative;
+  height: 40px;
+  padding: 0 12px;
+  margin-bottom: -1px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  border-bottom: 2px solid transparent;
+  border-radius: 6px 6px 0 0;
+}
+.tasmac-tab:hover {
+  color: var(--foreground);
+}
+.tasmac-tab[aria-selected="true"] {
+  color: var(--foreground);
+  border-bottom-color: var(--primary);
+}
+
+.tasmac-summary-strip {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+.tasmac-summary-item {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 20px;
+  border-left: 1px solid var(--border);
+}
+.tasmac-summary-item:first-child {
+  border-left: 0;
+}
+.tasmac-summary-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.75;
+  color: var(--muted-foreground);
+}
+.tasmac-summary-item dd[data-tone="critical"] {
+  color: #e06c6c;
+}
+.tasmac-summary-item dd[data-tone="low"] {
+  color: #d9a441;
+}
+
+.tasmac-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  width: 100%;
+  padding: 2px 0 4px;
+}
+
+/* The same compact control rhythm is used above every table. */
+.tasmac-toolbar > :first-child {
+  min-width: min(100%, 280px);
+}
+.tasmac-table-surface {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+/* One compact scrollbar treatment for pages, tables, panels and dropdowns. */
+html,
+* {
+  scrollbar-color: #4c5152 transparent;
+  scrollbar-width: thin;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  border: 2px solid var(--card);
+  border-radius: 999px;
+  background: #4c5152;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #646a6a;
+}
+table.tasmac-inv-table td,
+table.tasmac-inv-table th {
+  padding-inline: 14px;
+}
+table.tasmac-inv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  line-height: 18px;
+  font-variant-numeric: tabular-nums;
+}
+table.tasmac-inv-table thead th {
+  height: 42px;
+  font-size: 12.5px;
+  font-weight: 750;
+  letter-spacing: 0.015em;
+  color: var(--muted-foreground);
+  background: var(--fp-surface-subtle);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+table.tasmac-inv-table th.text-center,
+table.tasmac-inv-table td.text-center {
+  text-align: center !important;
+}
+table.tasmac-inv-table tbody td {
+  height: 48px;
+  padding-block: 6px;
+  border-top: 1px solid var(--border);
+  vertical-align: middle;
+}
+table.tasmac-inv-table tbody tr:first-child td {
+  border-top: 0;
+}
+table.tasmac-inv-table td.text-right,
+table.tasmac-inv-table td.font-mono {
+  white-space: nowrap;
+}
+table.tasmac-inv-table tr.tasmac-total-row td {
+  border-top: 1px solid var(--fp-border-strong);
+}
+.tasmac-sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+  font: inherit;
+  border-radius: 4px;
+}
+.tasmac-sort-btn:hover,
+.tasmac-sort-btn[data-active] {
+  color: var(--foreground);
+}
+.tasmac-sort-icon {
+  font-size: 11px;
+  opacity: 0.45;
+}
+.tasmac-sort-btn[data-active] .tasmac-sort-icon {
+  opacity: 1;
+  color: var(--primary);
+}
+.tasmac-table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 52px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+/* Compact stock-health lozenge: 22px, fit-content, 6px radius. */
+.tasmac-health {
+  --h: #8a8a8a;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--h);
+  background: color-mix(in srgb, var(--h) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--h) 24%, transparent);
+}
+.tasmac-health[data-health="critical"] {
+  --h: #e06c6c;
+}
+.tasmac-health[data-health="low"] {
+  --h: #d9a441;
+}
+.tasmac-health[data-health="healthy"] {
+  --h: #4fb3a5;
+}
+.tasmac-health-dot {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 999px;
+  background: var(--h);
+}
+
+/* Product sheet definition lists */
+.tasmac-dl {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+.tasmac-dl-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  height: 36px;
+  padding: 0 14px;
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+}
+.tasmac-dl-row:first-child {
+  border-top: 0;
+}
+
+/* 4RGE Select: compact 36px trigger, shared across every workspace. */
+[data-slot="select-trigger"].tasmac-select-trigger {
+  height: 36px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--fp-surface-default);
+  color: var(--foreground);
+  font-size: 13px;
+  padding-inline: 10px;
+  align-items: center;
+}
+[data-slot="select-trigger"].tasmac-select-trigger svg {
+  color: var(--text-tertiary);
+  opacity: 1;
+  align-self: center;
+}
+[data-slot="select-trigger"].tasmac-select-trigger:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+[data-slot="select-content"].tasmac-select-content {
+  min-width: var(--radix-select-trigger-width);
+  max-height: min(320px, var(--radix-select-content-available-height));
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--popover);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  z-index: 80;
+}
+.tasmac-select-content [data-slot="select-item"] {
+  height: 36px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--foreground);
+}
+.tasmac-select-content [data-slot="select-item"][data-state="checked"] {
+  background: #232323;
+}
+.tasmac-select-content [data-slot="select-item"][data-highlighted] {
+  background: #2a2a2a;
+  color: var(--foreground);
+}
+.tasmac-select-content [data-slot="select-item"] svg {
+  color: var(--primary);
+}
+html
+  .tasmac-select-content
+  [data-slot="select-item"]:is(:focus, :focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ---------------- Button system (Dashboard + Inventory) ----------------
+ * One rule per control type. Filled orange only on .tasmac-btn-primary.
+ */
+.tasmac-btn {
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+/* Dashboard KPIs: neutral border by default; orange border only on hover, active, or touch */
+.tasmac-dashboard-kpi {
+  border-color: var(--border) !important;
+  background: var(--card) !important;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+html.dark .tasmac-dashboard-kpi {
+  border-color: var(--border) !important;
+  background: var(--card) !important;
+}
+
+.tasmac-dashboard-kpi:hover,
+.tasmac-dashboard-kpi:active,
+.tasmac-dashboard-kpi:focus-visible {
+  transform: translateY(-2px);
+  border-color: #f97316 !important;
+  background: var(--card) !important;
+}
+
+html.dark .tasmac-dashboard-kpi:hover,
+html.dark .tasmac-dashboard-kpi:active,
+html.dark .tasmac-dashboard-kpi:focus-visible {
+  border-color: #f97316 !important;
+  background: var(--card) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+html.light .tasmac-dashboard-kpi:hover,
+html.light .tasmac-dashboard-kpi:active,
+html.light .tasmac-dashboard-kpi:focus-visible {
+  border-color: #f97316 !important;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.14);
+}
+
+.tasmac-dashboard-kpi [data-kpi-icon] {
+  transition: color 160ms ease;
+}
+
+.tasmac-dashboard-kpi:hover [data-kpi-icon],
+.tasmac-dashboard-kpi:active [data-kpi-icon] {
+  color: #f97316;
+}
+.tasmac-btn:is(:focus, :focus-visible),
+[data-slot="input"]:is(:focus, :focus-visible),
+[data-slot="select-trigger"]:is(:focus, :focus-visible),
+[data-slot="select-trigger"][data-state="open"],
+select.tasmac-select:is(:focus, :focus-visible),
+textarea:is(:focus, :focus-visible) {
+  outline: none !important;
+  outline-offset: 0;
+  border-color: var(--primary) !important;
+  box-shadow: none !important;
+}
+.tasmac-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2;
+}
+.tasmac-btn:active:not(:disabled),
+.tasmac-segment:active,
+.tasmac-data-row:active {
+  transform: translateY(1px);
+}
+
+/* Primary + dialog footer: 40px, the only filled emphasis. */
+.tasmac-btn.tasmac-btn-primary,
+.tasmac-btn.tasmac-btn-dialog {
+  height: 40px;
+  gap: 6px;
+  padding-inline: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.tasmac-btn.tasmac-btn-primary:has(> svg) {
+  padding-inline: 14px 16px;
+}
+.tasmac-btn.tasmac-btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+.tasmac-btn.tasmac-btn-primary:disabled,
+.tasmac-btn.tasmac-btn-dialog:disabled {
+  opacity: 1;
+  border-color: var(--border);
+  background: var(--accent);
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+}
+
+/* Toolbar Search: 36px neutral outline aligned with the compact fields. */
+.tasmac-btn.tasmac-btn-toolbar {
+  height: 36px;
+  gap: 6px;
+  padding-inline: 11px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--fp-surface-default);
+  color: var(--foreground);
+}
+.tasmac-btn.tasmac-btn-toolbar:hover {
+  background: #232323;
+  border-color: var(--fp-border-strong);
+}
+.tasmac-btn.tasmac-btn-toolbar svg {
+  color: var(--muted-foreground);
+}
+
+/* Clear filters: text action, no box at rest. */
+.tasmac-btn.tasmac-btn-quiet {
+  height: 28px;
+  gap: 4px;
+  padding-inline: 6px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--muted-foreground);
+}
+.tasmac-btn.tasmac-btn-quiet:hover {
+  background: transparent;
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Retry: 36px neutral outline, never competes with primary. */
+.tasmac-btn.tasmac-btn-retry {
+  height: 36px;
+  gap: 6px;
+  padding-inline: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Panel header nav action: 30px ghost + trailing arrow. */
+.tasmac-btn.tasmac-btn-panel {
+  height: 30px;
+  gap: 6px;
+  padding-inline: 10px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+.tasmac-btn.tasmac-btn-panel:hover {
+  background: #232323;
+  color: var(--foreground);
+}
+
+/* Row actions: 28px icon+label ghost, no box at rest. */
+.tasmac-btn.tasmac-btn-row {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  gap: 5px;
+  padding-inline: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--muted-foreground);
+}
+.tasmac-btn.tasmac-btn-row:hover,
+.tasmac-btn.tasmac-btn-row:focus-visible {
+  background: transparent;
+  color: var(--primary);
+}
+.tasmac-btn.tasmac-btn-row-danger {
+  color: var(--destructive);
+  opacity: 1;
+}
+.tasmac-btn.tasmac-btn-row-danger:hover,
+.tasmac-btn.tasmac-btn-row-danger:focus-visible {
+  color: var(--destructive);
+  background: var(--fp-state-danger-subtle);
+}
+
+/* Pager: 32x32 square icon buttons. */
+.tasmac-btn.tasmac-btn-pager {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 6px;
+}
+.tasmac-btn.tasmac-btn-pager svg {
+  width: 16px;
+  height: 16px;
+}
+.tasmac-btn.tasmac-btn-pager:disabled {
+  opacity: 0.4;
+}
+
+/* Dashboard timeframe: a sliding neutral selection surface with an orange active label. */
+.tasmac-segmented {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 36px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #121212;
+  isolation: isolate;
+}
+.tasmac-segment {
+  position: relative;
+  isolation: isolate;
+  height: 28px;
+  padding-inline: 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  background: transparent;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+.tasmac-segment:hover {
+  color: var(--foreground);
+}
+.tasmac-segment[aria-pressed="true"] {
+  color: var(--primary-foreground);
+  background: transparent;
+  box-shadow: none;
+}
+.tasmac-segment-indicator {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: var(--primary);
+  box-shadow: 0 1px 2px rgba(249, 115, 22, 0.28);
+  pointer-events: none;
+}
+.tasmac-segment-label {
+  position: relative;
+  z-index: 1;
+}
+
+/* Chart data rows: transparent at rest; active = neutral + 2px orange left edge. */
+.tasmac-data-row {
+  position: relative;
+  border-radius: 6px;
+  background: transparent;
+  outline: none;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+.tasmac-data-row:hover {
+  background: var(--fp-state-hover);
+}
+.tasmac-data-row[data-active="true"] {
+  background: #1f1f1f;
+}
+.tasmac-data-row[data-active="true"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  border-radius: 0 2px 2px 0;
+  background: var(--primary);
+}
+.tasmac-data-row:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 0;
+}
+
+/* Row actions stay readable when a wide table scrolls locally. */
+table.tasmac-actions-sticky th:last-child,
+table.tasmac-actions-sticky td:last-child {
+  position: sticky;
+  right: 0;
+  background: var(--card);
+  box-shadow: inset 1px 0 0 var(--border);
+}
+table.tasmac-actions-sticky thead th:last-child {
+  background: var(--fp-surface-subtle);
+}
+table.tasmac-actions-sticky td:last-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
+/* ---------------- Stock operations + Tracking ---------------- */
+.tasmac-op-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (min-width: 1200px) {
+  .tasmac-op-grid {
+    grid-template-columns: minmax(0, 1.65fr) minmax(300px, 1fr);
+  }
+}
+.tasmac-op-surface {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+.tasmac-op-surface-head {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--border);
+}
+.tasmac-op-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+.tasmac-op-span {
+  grid-column: 1 / -1;
+}
+.tasmac-op-route {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+}
+.tasmac-op-route-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-top: 22px;
+  color: var(--muted-foreground);
+}
+.tasmac-op-route-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+.tasmac-op-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+}
+.tasmac-op-context {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+.tasmac-op-identity {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tasmac-op-committed {
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--success) 35%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--success) 8%, transparent);
+}
+.tasmac-btn.tasmac-btn-ghost {
+  color: var(--muted-foreground);
+}
+.tasmac-btn.tasmac-btn-ghost:hover:not(:disabled) {
+  background: var(--fp-state-hover);
+  color: var(--foreground);
+}
+.tasmac-adjust-radio {
+  appearance: none;
+  display: grid;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  place-items: center;
+  border: 1.5px solid var(--fp-border-strong);
+  border-radius: 999px;
+  background: var(--card);
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+.tasmac-adjust-radio:checked {
+  border-color: var(--primary);
+  background: var(--primary);
+  box-shadow: inset 0 0 0 4px var(--card);
+}
+.tasmac-adjust-radio:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.tasmac-txn-link {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 12px;
+  color: var(--foreground);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.tasmac-txn-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.tasmac-txn-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.tasmac-move-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.tasmac-move-type svg {
+  width: 14px;
+  height: 14px;
+  color: var(--muted-foreground);
+}
+/* Transfer status lozenges reuse .tasmac-health sizing. */
+.tasmac-health[data-status="requested"] {
+  --h: #d9a441;
+}
+.tasmac-health[data-status="approved"],
+.tasmac-health[data-status="received"] {
+  --h: #4fb3a5;
+}
+.tasmac-health[data-status="dispatched"] {
+  --h: #8fa3b8;
+}
+.tasmac-health[data-status="rejected"],
+.tasmac-health[data-status="cancelled"] {
+  --h: #e06c6c;
+}
+
+/* Reports: dense analysis panels, shop radar, compact comparisons. */
+.tasmac-reports .tasmac-summary-item {
+  padding: 12px 16px;
+  gap: 2px;
+}
+.tasmac-reports .tasmac-metric-value {
+  font-size: 24px;
+  line-height: 30px;
+}
+.tasmac-report-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.tasmac-report-panel-title {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 675;
+  color: var(--foreground);
+}
+.tasmac-report-analysis {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(400px, 1fr);
+  gap: 16px;
+}
+@media (max-width: 1180px) {
+  .tasmac-report-analysis {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.tasmac-radar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px 14px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.tasmac-radar-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.tasmac-radar-key {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border: 1px solid;
+}
+.tasmac-radar-key[data-series="units"] {
+  background: rgb(249 115 22 / 0.3);
+  border-color: #f97316;
+}
+.tasmac-radar-key[data-series="threshold"] {
+  background: rgb(127 199 188 / 0.18);
+  border-color: #7fc7bc;
+}
+.tasmac-radar-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px 12px;
+}
+.tasmac-radar {
+  width: 100%;
+  max-width: 520px;
+  height: 300px;
+  overflow: visible;
+}
+.tasmac-radar-grid {
+  fill: none;
+  stroke: #2a2a2a;
+  stroke-width: 1;
+}
+.tasmac-radar-spoke {
+  stroke: #262626;
+  stroke-width: 1;
+}
+.tasmac-radar-axis {
+  font-size: 11px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  fill: #a3a3a3;
+}
+.tasmac-radar-axis[data-active="true"] {
+  fill: #f5f5f5;
+  font-weight: 600;
+}
+.tasmac-radar-scale {
+  font-size: 10px;
+  fill: #737373;
+}
+.tasmac-radar-series {
+  transform: scale(0.6);
+  opacity: 0;
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 420ms ease;
+}
+.tasmac-radar-series[data-drawn="true"] {
+  transform: scale(1);
+  opacity: 1;
+}
+.tasmac-radar-poly {
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+.tasmac-radar-poly[data-series="units"] {
+  fill: rgb(249 115 22 / 0.22);
+  stroke: #f97316;
+}
+.tasmac-radar-poly[data-series="threshold"] {
+  fill: rgb(127 199 188 / 0.12);
+  stroke: #7fc7bc;
+  stroke-dasharray: 4 3;
+}
+.tasmac-radar-dot {
+  stroke: #0a0a0a;
+  stroke-width: 1;
+  transition: r 160ms ease;
+}
+.tasmac-radar-dot[data-series="units"] {
+  fill: #f97316;
+}
+.tasmac-radar-dot[data-series="threshold"] {
+  fill: #7fc7bc;
+}
+table.tasmac-radar-readout {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+}
+.tasmac-radar-readout-scroll {
+  overflow-x: auto;
+}
+table.tasmac-radar-readout th {
+  height: 34px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted-foreground);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+table.tasmac-radar-readout th.text-center,
+table.tasmac-radar-readout td.text-center {
+  text-align: center;
+}
+table.tasmac-radar-readout td {
+  height: 44px;
+  padding: 4px 8px;
+  border-bottom: 1px solid #1f1f1f;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+table.tasmac-radar-readout tr[data-active="true"] td,
+table.tasmac-radar-readout tbody tr:hover td {
+  background: #1f1f1f;
+}
+table.tasmac-radar-readout tbody tr:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+.tasmac-pair-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 16px;
+}
+.tasmac-pair {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.tasmac-pair[data-active="true"] {
+  background: #1f1f1f;
+}
+.tasmac-pair-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px;
+  align-items: center;
+  gap: 10px;
+}
+.tasmac-pair-fill[data-series="units"] {
+  background: #f97316;
+}
+.tasmac-pair-fill[data-series="threshold"] {
+  background: #7fc7bc;
+}
+.tasmac-report-bars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+  padding: 8px 8px;
+}
+.tasmac-report-bar-row {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr) minmax(60px, 1fr) 56px 48px;
+  align-items: center;
+  gap: 10px;
+  height: 34px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.tasmac-report-bar-row:hover {
+  background: #1f1f1f;
+}
+.tasmac-report-bar-row:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+.tasmac-report-swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+.tasmac-report-track {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  background: #242424;
+  overflow: hidden;
+}
+.tasmac-report-track > span {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  transition: width 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (max-width: 1180px) {
+  .tasmac-report-bars {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tasmac-radar-series,
+  .tasmac-radar-dot,
+  .tasmac-report-track > span {
+    transition: none;
+  }
+}
+.tasmac-report-table-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 52px;
+  padding: 8px 16px;
+}
+table.tasmac-report-table thead th {
+  font-size: 12.5px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+/* Keep movement timestamps and their type visibly separate in the scrollable audit table. */
+table.tasmac-movement-table th:nth-child(2),
+table.tasmac-movement-table td:nth-child(2) {
+  min-width: 224px;
+  padding-inline: 20px;
+}
+table.tasmac-movement-table th:nth-child(4),
+table.tasmac-movement-table td:nth-child(4) {
+  min-width: 126px;
+  padding-inline: 18px;
+}
+
+/* Management status lozenges (reuse .tasmac-health geometry). */
+.tasmac-health[data-mgmt="active"] {
+  --h: #45b978;
+}
+html.light .tasmac-health[data-mgmt="active"] {
+  --h: #15834d;
+}
+.tasmac-health[data-mgmt="neutral"] {
+  --h: #b5b5b5;
+}
+.tasmac-health[data-mgmt="pending"] {
+  --h: #d9a441;
+}
+.tasmac-health[data-mgmt="inactive"] {
+  --h: #8a8a8a;
+}
+/* Settings: sectioned readable form with a separated action footer. */
+.tasmac-settings {
+  width: 100%;
+  max-width: none;
+}
+.tasmac-settings-section {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 24px;
+  padding: 20px;
+  border-top: 1px solid var(--border);
+}
+.tasmac-settings-section:first-of-type {
+  border-top: 0;
+}
+.tasmac-settings-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--fp-surface-subtle);
+  border-radius: 0 0 10px 10px;
+}
+.tasmac-transfer-approval {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(280px, 400px);
+  align-items: start;
+  gap: 24px;
+}
+.tasmac-transfer-approval-switch {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 12px;
+}
+.tasmac-transfer-approval-field {
+  min-width: 0;
+}
+.tasmac-mgmt-dialog {
+  max-width: 560px;
+}
+
+@media (max-width: 720px) {
+  .tasmac-settings-section {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .tasmac-transfer-approval {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Auth surfaces */
+.tasmac-auth {
+  display: grid;
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100dvh;
+  place-items: center;
+  padding: 24px;
+  background-color: #fdfcf9;
+  color: #1d1d1b;
+}
+.tasmac-auth::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  background: url("/tasmac-login-inventory-background.png") center / 100% 100% no-repeat;
+  filter: contrast(1.1) saturate(1.28);
+  pointer-events: none;
+}
+html:has(.tasmac-auth),
+body:has(.tasmac-auth) {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #fdfcf9 !important;
+}
+.tasmac-auth-panel {
+  position: relative;
+  z-index: 1;
+  color-scheme: light;
+  --foreground: #1d1d1b;
+  --card: #ffffff;
+  --card-foreground: #1d1d1b;
+  --muted: #f6f4ef;
+  --muted-foreground: #625d56;
+  --secondary: #f6f4ef;
+  --secondary-foreground: #1d1d1b;
+  --primary: #f97316;
+  --primary-foreground: #ffffff;
+  --border: #d8d5ce;
+  --input: #d8d5ce;
+  --ring: #f97316;
+  --fp-surface-subtle: #f6f4ef;
+  --fp-text-primary: #1d1d1b;
+  --fp-text-secondary: #625d56;
+  --fp-border-subtle: #d8d5ce;
+  --fp-border-default: #d8d5ce;
+  width: 100%;
+  max-width: 456px;
+  padding: 36px;
+  border: 1px solid #d8d5ce;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 20px 46px rgba(45, 39, 29, 0.1);
+}
+html.dark .tasmac-auth-panel {
+  border-color: #d8d5ce;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 20px 46px rgba(45, 39, 29, 0.1);
+}
+html.light .tasmac-auth-panel {
+  border-color: #d8d5ce;
+  background: rgba(255, 255, 255, 0.94);
+}
+.tasmac-auth-panel [data-slot="input"] {
+  color: #1d1d1b !important;
+  background: #ffffff !important;
+  border-color: #d8d5ce !important;
+}
+.tasmac-auth-panel [data-slot="input"]::placeholder {
+  color: #817a72;
+}
+.tasmac-auth-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.tasmac-auth-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.tasmac-auth-brand .tasmac-brand-mark {
+  width: 30px;
+  height: 30px;
+}
+.tasmac-auth-brand-copy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tasmac-auth-brand-name {
+  color: var(--foreground);
+  font-size: 14px;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+.tasmac-auth-brand-product {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  font-weight: 600;
+}
+.tasmac-auth-title {
+  font-size: 27px;
+  line-height: 32px;
+  font-weight: 750;
+  text-align: center;
+}
+.tasmac-auth-title + p {
+  text-align: center;
+}
+@media (max-width: 520px) {
+  .tasmac-auth {
+    padding: 16px;
+  }
+  .tasmac-auth-panel {
+    padding: 28px 22px;
+  }
+}
+.tasmac-auth-notice {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--fp-surface-subtle);
+  font-size: 13px;
+  line-height: 18px;
+}
+.tasmac-auth-notice svg {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
+  color: var(--muted-foreground);
+}
+.tasmac-auth-error {
+  padding: 10px 12px;
+  border: 1px solid color-mix(in srgb, #e06c6c 30%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, #e06c6c 8%, transparent);
+  color: #e88a8a;
+  font-size: 13px;
+  line-height: 18px;
+}
+.tasmac-auth-pw {
+  position: relative;
+}
+.tasmac-auth-pw input {
+  padding-right: 44px;
+}
+.tasmac-btn.tasmac-auth-pw-toggle {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: var(--muted-foreground);
+}
+.tasmac-btn.tasmac-auth-pw-toggle:hover {
+  color: var(--foreground);
+}
+.tasmac-btn.tasmac-auth-pw-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+.tasmac-auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 16px;
+}
+.tasmac-auth-divider > span:first-child,
+.tasmac-auth-divider > span:last-child {
+  height: 1px;
+  flex: 1;
+  background: var(--border);
+}
+.tasmac-auth-socials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.tasmac-btn.tasmac-auth-social {
+  height: 40px;
+  justify-content: center;
+  gap: 8px;
+  border-color: var(--border);
+  background: transparent;
+  color: var(--foreground);
+  font-weight: 600;
+}
+.tasmac-btn.tasmac-auth-social:hover {
+  border-color: color-mix(in srgb, var(--primary) 52%, var(--border));
+  background: color-mix(in srgb, var(--primary) 5%, transparent);
+}
+.tasmac-auth-provider-icon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+/* Shared error state: muted red edge, no loud fill. */
+.tasmac-state[data-tone="error"] {
+  border-color: color-mix(in srgb, #e06c6c 28%, var(--border));
+}
+
+/* Desktop density at 100% zoom: compact shell padding and rhythm (real tokens, no scaling). */
+#content main {
+  gap: 16px;
+}
+@media (min-width: 1024px) {
+  .tasmac-content-inner {
+    padding: 18px 22px !important;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1400px) {
+  .tasmac-content-inner {
+    padding: 16px 18px !important;
+  }
+}
+/* Reports density: chart height follows the viewport so the table starts above the fold. */
+.tasmac-reports .tasmac-summary-item {
+  padding: 10px 16px;
+}
+.tasmac-report-panel-head {
+  padding: 10px 16px;
+}
+.tasmac-radar-wrap {
+  padding: 4px 12px 8px;
+}
+.tasmac-radar {
+  display: block;
+  width: 100%;
+  height: clamp(250px, calc(100dvh - 500px), 320px);
+}
+#content table.tasmac-radar-readout td {
+  height: 34px;
+  padding: 2px 8px;
+}
+#content table.tasmac-radar-readout thead th {
+  height: 32px;
+}
+.tasmac-reports .tasmac-summary-item dd.text-xs {
+  line-height: 16px;
+}
+.tasmac-summary-item {
+  padding: 12px 16px;
+}
+/* Readout matches the chart height on wide desktop and scrolls locally instead of pushing the table down. */
+@media (min-width: 1181px) {
+  .tasmac-report-analysis > section:last-child {
+    contain: size;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .tasmac-radar-readout-scroll {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+  }
+  table.tasmac-radar-readout {
+    height: 100%;
+  }
+}
+
+/* ---------------- Enterprise foundation: operation flow ---------------- */
+.tasmac-ws .tasmac-op-surface-head {
+  height: 48px;
+  padding: 0 16px;
+  justify-content: space-between;
+  gap: 12px;
+}
+.tasmac-ws .tasmac-op-fields,
+.tasmac-ws .tasmac-op-context {
+  padding: 16px;
+}
+.tasmac-ws .tasmac-op-context {
+  gap: 12px;
+}
+.tasmac-ws .tasmac-op-actions {
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 16px;
+}
+.tasmac-ws .tasmac-review-line {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-right: auto;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+.tasmac-ws .tasmac-flow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tasmac-ws .tasmac-flow-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+.tasmac-ws .tasmac-flow-step + .tasmac-flow-step::before {
+  content: "";
+  width: 16px;
+  height: 1px;
+  margin-right: 4px;
+  background: var(--border);
+}
+.tasmac-ws .tasmac-flow-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.tasmac-ws .tasmac-flow-num svg {
+  width: 11px;
+  height: 11px;
+}
+.tasmac-ws .tasmac-flow-step[data-state="current"] {
+  color: var(--foreground);
+}
+.tasmac-ws .tasmac-flow-step[data-state="current"] .tasmac-flow-num {
+  border-color: var(--primary);
+  color: var(--foreground);
+}
+.tasmac-ws .tasmac-flow-step[data-state="done"] .tasmac-flow-num {
+  border-color: transparent;
+  background: var(--fp-surface-subtle, var(--muted));
+  color: var(--success, var(--foreground));
+}
+.tasmac-ws .tasmac-context-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.tasmac-ws .tasmac-context-hint svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+/* ---------- Target workspaces (Stock, Tracking, Management, Reports) ---------- */
+.tasmac-ws .tasmac-flow-rail {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--fp-surface-default);
+}
+.tasmac-ws .tasmac-op-context:has(> .tasmac-context-hint:only-child) {
+  min-height: 88px;
+  max-height: 110px;
+  justify-content: center;
+}
+.tasmac-ws table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.tasmac-ws [data-slot="select-trigger"].tasmac-select-trigger {
+  height: 36px;
+  min-height: 36px;
+  padding-inline: 10px;
+  font-size: 13px;
+  gap: 6px;
+}
+.tasmac-ws [data-slot="select-trigger"].tasmac-select-trigger > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tasmac-ws [data-slot="select-trigger"].tasmac-select-trigger svg {
+  flex: none;
+  width: 15px;
+  height: 15px;
+}
+.tasmac-ws .tasmac-toolbar :is(input[data-slot="input"]) {
+  height: 36px;
+}
+[data-slot="select-content"].tasmac-ws-menu {
+  max-width: max(320px, var(--radix-select-trigger-width));
+  max-height: min(280px, var(--radix-select-content-available-height));
+}
+.tasmac-ws-stock
+  .tasmac-op-form
+  [data-slot="select-trigger"].tasmac-select-trigger {
+  height: 36px;
+}
+@media (max-width: 1180px) {
+  .tasmac-ws-stock .tasmac-op-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.tasmac-record-context {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--fp-surface-subtle, var(--muted));
+  font-size: 12px;
+  color: var(--muted-foreground);
+  min-width: 0;
+}
+.tasmac-record-context > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--foreground);
+}
+.tasmac-record-context-entity {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+  font-weight: 600;
+  flex: none;
+}
+.tasmac-route-spine {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 14px 16px 14px 36px;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--fp-surface-default);
+}
+.tasmac-route-spine::before {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 24px;
+  bottom: 24px;
+  width: 1px;
+  background: var(--border);
+}
+.tasmac-route-spine li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 24px;
+  font-size: 13px;
+}
+.tasmac-spine-dot {
+  position: absolute;
+  left: -19px;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 1px solid var(--muted-foreground);
+  background: var(--background);
+}
+.tasmac-route-spine li[data-active="true"] .tasmac-spine-dot {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+.tasmac-route-spine li[data-reached="true"] .tasmac-spine-dot {
+  border-color: var(--success, var(--foreground));
+  background: var(--success, var(--foreground));
+}
+.tasmac-spine-k {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted-foreground);
+}
+.tasmac-spine-v {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--foreground);
+}
+.tasmac-report-ledger {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 0;
+  min-height: 32px;
+  margin: 0;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted-foreground);
+}
+.tasmac-report-ledger > span + span::before {
+  content: "·";
+  margin: 0 10px;
+  color: var(--text-tertiary, var(--muted-foreground));
+}
+.tasmac-report-ledger > span:first-child {
+  color: var(--foreground);
+  font-weight: 600;
+}
+.tasmac-ws-menu [data-slot="select-item"] {
+  height: 34px;
+}
+.tasmac-ws-menu [data-slot="select-item"] {
+  height: auto;
+  min-height: 34px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.tasmac-ws-menu [data-slot="select-item"] > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tasmac-ws .tasmac-toolbar .tasmac-btn-toolbar {
+  height: 36px;
+  min-height: 36px;
+}
